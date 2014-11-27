@@ -1,5 +1,7 @@
-define(['hbs!js/contact/contact'], function(viewTemplate) {
+define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
+    
     var $ = Framework7.$;
+    var socket = io();
  
     function render(params) {
 
@@ -66,8 +68,14 @@ define(['hbs!js/contact/contact'], function(viewTemplate) {
         $('#send-bolt').click(function() {
         	if (!currentBoltLive) {
 
+                socket.emit('bolt sent');
+
         		currentBoltLive = true;
         		$('#end-bolt').show();
+
+                /* Send socket thing */
+
+
         		var newBolt = {
 	        		attributes: {
 	        			BoltNum: numBolts + 1,
@@ -90,8 +98,13 @@ define(['hbs!js/contact/contact'], function(viewTemplate) {
         });
 
         $('#end-bolt').click(function() {
-        	currentBoltLive = false;
-        	$(this).hide();
+
+            app.f7.confirm('Are you sure you want to end this lecture?', 'electurefy', function() {
+                //emit socketss
+                currentBoltLive = false;
+                $('#end-bolt').hide();
+            });
+        	
         })
 
 

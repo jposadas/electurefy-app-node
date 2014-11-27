@@ -19,7 +19,7 @@ define('app', ['js/router'], function(Router) {
     
     Router.init();
     var f7 = new Framework7({
-        modalTitle: 'F7-MVC-Base',
+        modalTitle: 'electurefy',
         animateNavBackIcon: true
     });
     

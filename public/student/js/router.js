@@ -4,6 +4,7 @@ define(function() {
     function init() {
         $(document).on('pageBeforeInit', function (e) {
             var page = e.detail.page;
+            console.log('Page name: ' + page.name);
             load(page.name, page.query);
         });
     }

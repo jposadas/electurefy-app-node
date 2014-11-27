@@ -2,6 +2,8 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
  
     var state = {isNew: false};
     var contact = null;
+
+    console.log(app);
  
     function init(query){
         if (query && query.id) {
