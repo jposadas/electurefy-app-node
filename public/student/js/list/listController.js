@@ -1,4 +1,4 @@
-define(["app", "js/list/listView", "js/contact/contactView"], function(app, ListView, ContactView) {
+define(["app", "js/list/listView"], function(app, ListView) {
 
 	console.log(app);
 
@@ -9,7 +9,7 @@ define(["app", "js/list/listView", "js/contact/contactView"], function(app, List
 	function loadClasses() {
 		var query = new Parse.Query("MyClasses");
 		query.find().then(function(classes) {
-			ListView.render({ model: classes, ContactView: ContactView });
+			ListView.render({ model: classes });
 		});
 	}
 
