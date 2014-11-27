@@ -4,9 +4,9 @@ Parse.initialize("7QV2Jv0CLSlTFNgpFEc3JPlhCNIAD3xJtfBWgo1T", "VHJ2x20bfE22mceEeu
 
 require.config({
     paths: {
-        handlebars: "lib/handlebars",
-        text: "lib/text",
-        hbs: "lib/hbs"
+        handlebars: "/lib/handlebars",
+        text: "/lib/text",
+        hbs: "/lib/hbs"
     },
     shim: {
         handlebars: {
@@ -19,7 +19,7 @@ define('app', ['js/router'], function(Router) {
     
     Router.init();
     var f7 = new Framework7({
-        modalTitle: 'F7-MVC-Base',
+        modalTitle: 'electurefy',
         animateNavBackIcon: true
     });
     

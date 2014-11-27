@@ -3,8 +3,8 @@ define(['hbs!js/contact/contact'], function(viewTemplate) {
  
     function render(params) {
 
-        console.log('Rendering!');
-        $('.contact-page').html( viewTemplate());
+        console.log(params.model);
+        $('.contact-page .bolt-list ul').html(viewTemplate(params.model));
  
     }
  
