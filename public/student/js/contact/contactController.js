@@ -11,8 +11,8 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
 
     function queryParse() {
         var query = new Parse.Query("Bolts");
-        query.find().then(function(classes) {
-            ContactView.render({ model: classes });
+        query.descending("BoltNum").find().then(function(bolts) {
+            ContactView.render({ model: bolts });
         });
     }
  

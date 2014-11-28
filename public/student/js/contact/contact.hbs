@@ -1,7 +1,20 @@
 {{#.}}
     <li class="item-content">
         <div class="item-inner">
-            <div class="item-title">Bolt #{{attributes.BoltNum}}</div>
+        	<!-- <div class="bolt-answer-check">check</div> -->
+        	<div class="">
+        		<div class="">x</div>
+        		<div class="">x</div>
+        		<div class="">x</div>
+        	</div>
+        	<div class="bolt-time">{{attributes.timeSent}}</div>
+        	
+
+        	<!-- {{#if attributes.isResponsePositive}}
+            	<div class="">Bolt #{{attributes.BoltNum}} : check</div>
+            {{else}}
+        		<div class="">Bolt #{{attributes.BoltNum}} : x</div>
+        	{{/if}} -->
         </div>
     </li>
 {{/.}}
