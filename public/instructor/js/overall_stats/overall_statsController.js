@@ -1,4 +1,4 @@
-define(["app","js/schedule/scheduleView"], function(app, ScheduleView) {
+define(["app","js/overall_stats/overall_statsView"], function(app, Overall_statsView) {
  
     var state = {isNew: false};
     var contact = null;
@@ -20,15 +20,13 @@ define(["app","js/schedule/scheduleView"], function(app, ScheduleView) {
                 var boltsQuery = new Parse.Query("Bolts");
                 boltsQuery.find().then(function(bolts) {
 
-                    ScheduleView.render({model: {lectureBolts: bolts}});
-
-                //     ScheduleView.render({ model: 
-                //     { lectureNumber: lectureNumber,
-                //         lectureDate: lectureDayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay,
-                //         lectureStartTime: lectureStartTime,
-                //         lectureBolts: bolts
-                //     } 
-                // });
+                    Overall_statsView.render({ model: 
+                    { lectureNumber: lectureNumber,
+                        lectureDate: lectureDayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay,
+                        lectureStartTime: lectureStartTime,
+                        lectureBolts: bolts
+                    } 
+                });
 
                 });
 
