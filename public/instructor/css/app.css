@@ -29,12 +29,6 @@ i.icon-plus {
 .elem-center {
   margin: 0 auto;
 }
-/*.button.button-big.send-bolt-button {
-	width: 50%;
-	height: 90px;
-	font-size: 45px;
-	background-color: @white;
-}*/
 .gray-background {
   background-color: #d1cccc;
 }
@@ -92,7 +86,11 @@ i.icon-plus {
 }
 .class-title {
   margin-bottom: 0;
-  font-size: 30px;
+  font-size: 40px;
+}
+#class-schedule-title {
+  margin-bottom: 15px;
+  margin-top: 0px;
 }
 .class-date {
   margin-top: 0;
@@ -107,4 +105,27 @@ i.icon-plus {
 .class-time {
   margin-top: 0;
   font-size: 45px;
+}
+.week-number-box {
+  padding: 20px;
+  margin: 3px;
+  text-align: left;
+}
+.week-text {
+  font-size: 25px;
+  padding-left: 5%;
+}
+#up-carrot {
+  width: 35px;
+  position: relative;
+  left: 75%;
+  top: 43%;
+}
+#overall-stats {
+  margin-top: 20%;
+  height: 70px;
+  line-height: 70px;
+  font-size: 30px;
+  margin-bottom: 10px;
+  width: 80%;
 }
