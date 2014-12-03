@@ -30,11 +30,11 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
 
         var updateBoltInformation = function(currentBolt) {
 
-        	console.log(currentBolt);
+        	// console.log(bolts[currentBolt - 1]);
 
         	$('#negative-bolts').text(bolts[currentBolt - 1].attributes.numNeg);
 	        $('#positive-bolts').text(bolts[currentBolt - 1].attributes.numPos);
-	        $('#total-bolts').text(bolts[currentBolt - 1].attributes.totalResponses);
+	        $('#total-bolts').text(bolts[currentBolt - 1].attributes.numNeg + bolts[currentBolt - 1].attributes.numPos);
 	        $('#timestamp-bolts').text(bolts[currentBolt - 1].attributes.timeOfBolt);
 	        $('#bolt-number').text('Bolt ' + currentBolt);
 
@@ -68,13 +68,11 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         $('#send-bolt').click(function() {
         	if (!currentBoltLive) {
 
+                /* Emiting socket */
                 socket.emit('bolt sent');
 
         		currentBoltLive = true;
         		$('#end-bolt').show();
-
-                /* Send socket thing */
-
 
         		var newBolt = {
 	        		attributes: {
@@ -92,7 +90,31 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
 
 	        	numBolts = bolts.length;
 	        	currentBolt = newBolt.attributes.BoltNum;
-	        	updateBoltInformation(currentBolt);
+
+                updateBoltInformation(currentBolt);
+
+                /* Receiving Bolt from socket */
+                socket.on('bolt responded', function(obj) {
+
+                    console.log('bolt-responded');
+                    console.log(obj);
+
+                    if (obj.alreadyAnswered) {
+                        if (obj.previousAnsweredBolt === 'check') {
+                            bolts[currentBolt - 1].attributes.numPos--;
+                        } else if (obj.previousAnsweredBolt === 'x') {
+                            bolts[currentBolt - 1].attributes.numNeg--;
+                        }
+                    }
+
+                    if (obj.responseType === 'check') {
+                        bolts[currentBolt - 1].attributes.numPos++;
+                    } else if (obj.responseType === 'x') {
+                        bolts[currentBolt - 1].attributes.numNeg++;
+                    }
+                    updateBoltInformation(currentBolt);
+                });
+
         	}
         	
         });
@@ -105,8 +127,7 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
                 $('#end-bolt').hide();
             });
         	
-        })
-
+        });
 
     }
 

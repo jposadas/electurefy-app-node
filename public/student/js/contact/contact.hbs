@@ -1,21 +1,30 @@
-{{#.}}
+<div class="content-block-title">Current Bolt</div>
+<div class="content-block text-center">
+    <div class="response-icon-container">
+        <img class="response-icon" src="/glyphicons/check.png" data-type="check"/>
+        <img class="response-icon" src="/glyphicons/x.png" data-type="x"/> 
+    </div>
+</div>
+
+<div class="content-block-title">Past Bolts</div>
+<div class="content-block">
+{{#each bolts}}
     <li class="item-content">
-        <div class="item-inner">
-        	<!-- <div class="bolt-answer-check">check</div> -->
-        	<!-- <div class="">
-        		<div class="">{{attributes.BoltNum}}</div>
-        	</div> -->
-        	
-        	
+        <div class="item-inner">        	
+        	Bolt {{attributes.BoltNum}}
+            <div class="">
+                {{#if attributes.isResponsePositive}}
+                    <img class="response-icon small active" src="/glyphicons/check.png"/>
+                    <img class="response-icon small" src="/glyphicons/x.png"/>    
+                {{else}}
+            	   <img class="response-icon small" src="/glyphicons/check.png"/>
+                   <img class="response-icon small active" src="/glyphicons/x.png" />
+            	{{/if}}
+            </div>
 
-        	{{#if attributes.isResponsePositive}}
-            	<div class="">Bolt #{{attributes.BoltNum}} : check</div>
-            {{else}}
-        		<div class="">Bolt #{{attributes.BoltNum}} : x</div>
-        	{{/if}}
-
-            <div class="bolt-time">{{attributes.timeOfBolt}}</div>
+            <div class="">{{attributes.timeOfBolt}}</div>
             
         </div>
     </li>
-{{/.}}
+{{/each}}
+</div>

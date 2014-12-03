@@ -31,6 +31,11 @@ io.on('connection', function(socket){
 		io.emit('bolt sent');
 	});
 
+	socket.on('bolt response', function(response) {
+		console.log('bolt responded');
+		io.emit('bolt responded', response);
+	});
+
 });
 
 http.listen(3000, function(){

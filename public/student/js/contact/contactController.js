@@ -5,14 +5,14 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
 
     console.log(app);
  
-    function init() {
-        queryParse();
+    function init(query) {
+        queryParse(query.courseNumber);
     }
 
-    function queryParse() {
+    function queryParse(courseNumber) {
         var query = new Parse.Query("Bolts");
         query.descending("BoltNum").find().then(function(bolts) {
-            ContactView.render({ model: bolts });
+            ContactView.render({ model: bolts, courseNumber: courseNumber });
         });
     }
  
