@@ -16,7 +16,7 @@ define(["app","js/schedule/scheduleView"], function(app, ScheduleView) {
                 console.log(lecture6query);
                 ScheduleView.render({model:
                 { courseNumber: query.courseNumber,
-                    lectureDate1: dayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay
+                    lectureDate6: dayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay
                 }
                 });
             });

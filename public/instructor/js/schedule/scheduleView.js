@@ -12,9 +12,9 @@ define(['hbs!js/schedule/schedule'], function(viewTemplate) {
         $('.schedule-page').html( viewTemplate(
             {}
             ));
-
+        
         $('.schedule-header').text(params.model.courseNumber);
-        $('#lecture6').text(params.model.lectureDate1);
+        $('#lecture6').text(params.model.lectureDate6);
         
 
         $('#week3').click(function() {

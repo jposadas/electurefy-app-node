@@ -180,3 +180,23 @@ i.icon-plus {
 .display-inline-block {
   display: inline-block;
 }
+#lectureNumTitle {
+  padding-top: 5%;
+  padding-bottom: 7px;
+  font-weight: bold;
+  font-size: 50px;
+}
+#lectureDateTitle {
+  font-size: 35px;
+  padding-bottom: 5%;
+}
+.dark-gray-text {
+  color: #686868;
+}
+.documentation {
+  padding: 0px 0px 12px 5%;
+  font-size: 19px;
+}
+#best-lecture-title {
+  padding-bottom: 0px;
+}
