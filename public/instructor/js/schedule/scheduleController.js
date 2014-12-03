@@ -4,38 +4,25 @@ define(["app","js/schedule/scheduleView"], function(app, ScheduleView) {
     var contact = null;
  
     function init(query){
-        if (query && query.id) {
+        console.log(query);
+        if (query && query.courseNumber) { 
+            var lecture6query = new Parse.Query("Lectures");
+            lecture6query.equalTo("objectId", "U9YQRz6UTg");
+            lecture6query.find().then(function(lecture6) {
+                var dayOfWeek = lecture6[0].attributes.DayOfWeek;
+                var lectureDateMonth = lecture6[0].attributes.Date.getMonth() + 1;
+                var lectureDateDay = lecture6[0].attributes.Date.getDate();
 
-            var query = new Parse.Query("Lectures");
-            query.equalTo("objectId", "8H6DxULgQz");
-            query.find().then(function(currentLecture) {
-                
-                var lectureNumber = currentLecture[0].attributes.LectureNum;
-                var lectureDayOfWeek = currentLecture[0].attributes.DayOfWeek;
-                var lectureDateMonth = currentLecture[0].attributes.Date.getMonth() + 1;
-                var lectureDateDay = currentLecture[0].attributes.Date.getDate();
-
-                var lectureStartTime = currentLecture[0].attributes.startLecture;
-
-                var boltsQuery = new Parse.Query("Bolts");
-                boltsQuery.find().then(function(bolts) {
-
-                    ScheduleView.render({model: {lectureBolts: bolts}});
-
-                //     ScheduleView.render({ model: 
-                //     { lectureNumber: lectureNumber,
-                //         lectureDate: lectureDayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay,
-                //         lectureStartTime: lectureStartTime,
-                //         lectureBolts: bolts
-                //     } 
-                // });
-
+                console.log(lecture6query);
+                ScheduleView.render({model:
+                { courseNumber: query.courseNumber,
+                    lectureDate1: dayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay
+                }
                 });
-
-                
             });
-        
         }
+
+
     }
  
     return {

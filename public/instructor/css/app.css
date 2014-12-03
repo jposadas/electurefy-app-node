@@ -29,6 +29,9 @@ i.icon-plus {
 .elem-center {
   margin: 0 auto;
 }
+.light-grey-background {
+  background-color: #b8b8b8;
+}
 .gray-background {
   background-color: #d1cccc;
 }
@@ -46,6 +49,9 @@ i.icon-plus {
 }
 .font-small {
   font-size: 17px;
+}
+.left-align {
+  text-align: left;
 }
 .bolts-information {
   padding: 10px 45px 23px;
@@ -92,6 +98,13 @@ i.icon-plus {
   margin-bottom: 15px;
   margin-top: 0px;
 }
+.overall-stats-link {
+  padding-left: 5%;
+}
+.overall-stats-page {
+  font-size: 30px;
+  color: black;
+}
 .class-date {
   margin-top: 0;
   margin-bottom: 30px;
@@ -108,30 +121,62 @@ i.icon-plus {
 }
 .week-number-box {
   padding: 20px;
-  margin: 3px;
+  margin: 3px 0px;
   text-align: left;
 }
 .week-text {
+  color: black;
   font-size: 25px;
   padding-left: 5%;
 }
-#up-carrot {
+.carrot {
   width: 35px;
   position: relative;
-  left: 75%;
+  left: 78%;
   top: 43%;
 }
-#down-carrot {
-  width: 35px;
-  position: relative;
-  left: 75%;
-  top: 43%;
+.right-carrot {
+  width: 20px;
+  left: 88%;
 }
-#overall-stats {
-  margin-top: 20%;
+.padding-title {
+  font-size: 40px;
+  padding: 20px 0px;
+}
+.padding-link {
+  padding: 20px 5%;
+}
+.lecture-num-box {
+  margin: 3px 0px;
+  padding: 10px 0px;
+}
+.lecture-num-text {
+  text-align: left;
+  font-size: 25px;
+  padding-left: 10%;
+  color: #3141fd;
+}
+.display-none {
+  display: none;
+}
+.lecture-nums-chunk {
+  display: none;
+}
+.lecture-date-text {
+  padding-left: 3%;
+  color: #505050;
+}
+#overall-stats-button {
+  margin-top: 10%;
   height: 70px;
   line-height: 70px;
   font-size: 30px;
   margin-bottom: 10px;
   width: 80%;
+}
+.text-black {
+  color: black;
+}
+.display-inline-block {
+  display: inline-block;
 }
