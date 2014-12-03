@@ -1,4 +1,4 @@
-define(["app","js/contact/contactView"], function(app, ContactView) {
+define(["app","js/statistics/statisticsView"], function(app, StatisticsView) {
  
     var state = {isNew: false};
     var contact = null;
@@ -20,7 +20,7 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
                 var boltsQuery = new Parse.Query("Bolts");
                 boltsQuery.find().then(function(bolts) {
 
-                    ContactView.render({ model:
+                    StatisticsView.render({ model: 
                     { lectureNumber: lectureNumber,
                         lectureDate: lectureDayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay,
                         lectureStartTime: lectureStartTime,

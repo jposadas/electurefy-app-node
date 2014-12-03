@@ -29,12 +29,9 @@ i.icon-plus {
 .elem-center {
   margin: 0 auto;
 }
-/*.button.button-big.send-bolt-button {
-	width: 50%;
-	height: 90px;
-	font-size: 45px;
-	background-color: @white;
-}*/
+.light-grey-background {
+  background-color: #b8b8b8;
+}
 .gray-background {
   background-color: #d1cccc;
 }
@@ -52,6 +49,9 @@ i.icon-plus {
 }
 .font-small {
   font-size: 17px;
+}
+.left-align {
+  text-align: left;
 }
 .bolts-information {
   padding: 10px 45px 23px;
@@ -92,7 +92,18 @@ i.icon-plus {
 }
 .class-title {
   margin-bottom: 0;
+  font-size: 40px;
+}
+#class-schedule-title {
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
+.overall-stats-link {
+  padding-left: 5%;
+}
+.overall-stats-page {
   font-size: 30px;
+  color: black;
 }
 .class-date {
   margin-top: 0;
@@ -131,4 +142,85 @@ i.icon-plus {
 .response-icon.active {
   border-color: #2b59a2;
   background-color: #d1cccc;
+}
+.week-number-box {
+  padding: 20px;
+  margin: 3px 0px;
+  text-align: left;
+}
+.week-text {
+  color: black;
+  font-size: 25px;
+  padding-left: 5%;
+}
+.carrot {
+  width: 35px;
+  position: relative;
+  left: 78%;
+  top: 43%;
+}
+.right-carrot {
+  width: 20px;
+  left: 88%;
+}
+.padding-title {
+  font-size: 40px;
+  padding: 20px 0px;
+}
+.padding-link {
+  padding: 20px 5%;
+}
+.lecture-num-box {
+  margin: 3px 0px;
+  padding: 10px 0px;
+}
+.lecture-num-text {
+  text-align: left;
+  font-size: 25px;
+  padding-left: 10%;
+  color: #3141fd;
+}
+.display-none {
+  display: none;
+}
+.lecture-nums-chunk {
+  display: none;
+}
+.lecture-date-text {
+  padding-left: 3%;
+  color: #505050;
+}
+#overall-stats-button {
+  margin-top: 10%;
+  height: 70px;
+  line-height: 70px;
+  font-size: 30px;
+  margin-bottom: 10px;
+  width: 80%;
+}
+.text-black {
+  color: black;
+}
+.display-inline-block {
+  display: inline-block;
+}
+#lectureNumTitle {
+  padding-top: 5%;
+  padding-bottom: 7px;
+  font-weight: bold;
+  font-size: 50px;
+}
+#lectureDateTitle {
+  font-size: 35px;
+  padding-bottom: 5%;
+}
+.dark-gray-text {
+  color: #686868;
+}
+.documentation {
+  padding: 0px 0px 12px 5%;
+  font-size: 19px;
+}
+#best-lecture-title {
+  padding-bottom: 0px;
 }
