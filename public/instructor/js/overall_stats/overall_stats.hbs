@@ -2,31 +2,32 @@
     <div class="container">
         <div class="overall-stats-page">
 
-            <div id="best-lecture-title" class="row padding-title padding-link">Best Lecture</div>
-            <div class="row documentation">Lecture with the highest understanding rate</div>
-            <a href="#">
+            <div class="row best-worst-lecture-title padding-title padding-link">Best Lecture</div>
+            <div class="row dark-gray-text documentation">Lecture with the highest understanding rate</div>
+            <a href="lecture_stats.html?lectureNum=1&lectureDescription=Introduction&#32;to&#32;CS&#32;247&lectureDate=TUE&#32;09/23">
                 <div class="row white-background padding-link overall-stats-link">
-                    <span class="row dark-gray-text display-inline-block text-black">white</span>
+                    <span class="row display-inline-block text-black">Lecture 1 - Introduction to CS 247</span>
                     <img class="carrot display-inline-block right-carrot" id="right-carrot" src="glyphicons/right_carrot.png">
                 </div>
             </a>
 
-            <div class="row padding-title padding-link">Worst Lecture</div>
-            <a href="#">
+            <div class="row best-worst-lecture-title padding-title padding-link">Worst Lecture</div>
+            <div class="row dark-gray-text documentation">Lecture with the lowest understanding rate</div>
+            <a href="lecture_stats.html?lectureNum=5&lectureDescription=Design&#32;Exploration&lectureDate=TUE&#32;10/7">
                 <div class="row white-background padding-link overall-stats-link">
-                    <span class="row dark-gray-text display-inline-block text-black">white</span>
+                    <span class="row display-inline-block text-black">Lecture 5 - Design Exploration</span>
                     <img class="carrot display-inline-block right-carrot" id="right-carrot" src="glyphicons/right_carrot.png">
                 </div>
             </a>
 
             <div class="row padding-title padding-link">Overall Response Rate</div>
-            <div class="row dark-gray-text white-background padding-link overall-stats-link"></div>
-            <div class="row dark-gray-text white-background documentation">responses out of total bolts sent</div>
+            <div id="overall-responses"class="row white-background padding-link overall-stats-link">306 / 400</div>
+            <div class="row dark-gray-text white-background documentation">Responses out of total bolts sent</div>
 
 
             <div class="row padding-title padding-link">Average Response</div>
-            <div class="row white-background padding-link overall-stats-link">white</div>
-
+            <div class="row white-background padding-link overall-stats-link">200<img class="smaller-size-icons response-icon" src="/glyphicons/check.png" data-type="check">, 106<img class="smaller-size-icons response-icon" src="/glyphicons/x.png" data-type="x"> / 306</div>
+            <div class="row dark-gray-text white-background documentation">Positive and negative responses out of total responses</div>
         </div>
     </div>
 </div> 

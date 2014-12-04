@@ -6,7 +6,8 @@ define(["app","js/lecture_stats/lecture_statsView"], function(app, Lecture_stats
     function init(query){
         Lecture_statsView.render({model: 
         	{	lectureNum: query.lectureNum,
-        		lectureDate: query.lectureDate
+        		lectureDate: query.lectureDate,
+                lectureDescription: query.lectureDescription
         	}
         });
     }

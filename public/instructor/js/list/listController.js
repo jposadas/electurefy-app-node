@@ -1,7 +1,6 @@
 define(["js/list/listView"], function(ListView) {
 
 	function init() {
-		console.log('Hello');
 		var classes = loadClasses();
 	}
 

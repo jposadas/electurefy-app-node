@@ -7,6 +7,8 @@ define(['hbs!js/overall_stats/overall_stats'], function(viewTemplate) {
 
        	));
 
+        $('.overall_stats-header').text("CS 247 Overall Statistics");
+
     }
  
     return {

@@ -4,13 +4,10 @@ define(['hbs!js/lecture_stats/lecture_stats'], function(viewTemplate) {
     function render(params) {
         $('.lecture_stats-page').html( viewTemplate() );
 
-        $('.lecture_stats-header').text("CS 247 Statistics");
+        $('.lecture_stats-header').text("CS 247 Lecture Statistics");
         $('#lectureNumTitle').text("Lecture " + params.model.lectureNum);
+        $('#lectureDescriptionTitle').text(params.model.lectureDescription);
         $('#lectureDateTitle').text(params.model.lectureDate);
-
-
-
-        
 
     }
  
