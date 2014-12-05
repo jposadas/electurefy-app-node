@@ -8,7 +8,7 @@ define(['hbs!js/lecture_stats/lecture_stats'], function(viewTemplate) {
         $('#lectureNumTitle').text("Lecture " + params.model.lectureNum);
         $('#lectureDescriptionTitle').text(params.model.lectureDescription);
         $('#lectureDateTitle').text(params.model.lectureDate);
-        $('#lecture-graph').src("lecture" + params.model.lectureNum + "-chart.png");
+        $('.lecture-graph').attr('src', "lecture-charts/lecture" + params.model.lectureNum + "-chart.png");
     }
  
     return {
