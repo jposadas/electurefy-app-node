@@ -435,3 +435,11 @@ span.gray-text {
   text-align: center;
   margin-right: 3px;
 }
+.lecture-stats-page .lecture-stats-button {
+  height: auto;
+  line-height: 70px;
+  font-size: 30px;
+  margin: 0 auto;
+  width: 50%;
+  background: #2b59a2;
+}
