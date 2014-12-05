@@ -5,10 +5,16 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
  
     function render(params) {
 
+        var mostRecentBolt = params.model.lectureBolts[params.model.lectureBolts.length - 1];
+        console.log(mostRecentBolt);
+        mostRecentBolt.attributes.totalResponses = mostRecentBolt.attributes.numPos + mostRecentBolt.attributes.numNeg;
+
+
         $('.contact-page').html( viewTemplate( 
         	{ lectureNumber: params.model.lectureNumber,
         	  lectureDate: params.model.lectureDate,
-        	  lectureTime: params.model.lectureTime
+        	  lectureTime: params.model.lectureTime,
+              mostRecentBolt: mostRecentBolt 
         	}
        	));
 
@@ -32,13 +38,14 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
 
          //    console.log(currentBolt);
          //    console.log(bolts);
-        	// console.log(bolts[currentBolt - 1]);
+        	console.log(bolts[currentBolt - 1]);
 
-        	$('#negative-bolts').text(bolts[currentBolt - 1].attributes.numNeg);
-	        $('#positive-bolts').text(bolts[currentBolt - 1].attributes.numPos);
-	        $('#total-bolts').text(bolts[currentBolt - 1].attributes.numNeg + bolts[currentBolt - 1].attributes.numPos);
-	        $('#timestamp-bolts').text(bolts[currentBolt - 1].attributes.timeOfBolt);
-	        $('#bolt-number').text('Bolt ' + currentBolt);
+        	$('#numNeg').text(bolts[currentBolt - 1].attributes.numNeg);
+	        $('#numPos').text(bolts[currentBolt - 1].attributes.numPos);
+            var totalResponses = bolts[currentBolt - 1].attributes.numNeg + bolts[currentBolt - 1].attributes.numPos;
+            var totalResponsesText = (totalResponses === 1) ? 'RESPONSE' : 'RESPONSES';
+	        $('#totalBolts').text(totalResponses + ' ' + totalResponsesText);
+	        $('#timeOfBolt').text(bolts[currentBolt - 1].attributes.timeOfBolt);
 
         };
 
@@ -69,6 +76,9 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
 
         $('#send-bolt').click(function() {
         	if (!currentBoltLive) {
+
+                /* Changing Panel Information */
+                $('.panel-title').text('BOLT IN PROGRESS');
 
                 /* Emiting socket */
                 socket.emit('bolt sent');
@@ -135,6 +145,7 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
                 currentBoltLive = false;
                 $('#send-bolt').parents('.row').show();
                 $('#end-bolt').parents('.row').hide();
+                $('.panel-title').text('MOST RECENT BOLT');
 
                 var newBoltInfo = bolts[bolts.length - 1];
                 var responseType = (newBoltInfo.attributes.numPos >= newBoltInfo.attributes.numNeg) ? true : false;

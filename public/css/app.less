@@ -16,6 +16,29 @@
 	a.link {
 		color: @white;
 	}
+
+	&.navbar-ipad {
+		height: 90px;
+
+		.center {
+			font-size: 30px;
+		}
+
+		.left {
+			font-size: 25px;
+		}
+
+		.right {
+			font-size: 25px;
+		}
+
+	}
+}
+
+.page-content {
+	&.page-content-ipad {
+		padding-top: 90px;
+	}
 }
 
 .no-margin-list {
@@ -151,11 +174,15 @@ i.icon-plus {
 	margin-top: 0;
 	margin-bottom: 30px;
 	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 .class-time-label {
 	margin-top: 30px;
 	margin-bottom: 0;
-	font-size: 17px;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 .class-time {
 	margin-top: 0;
@@ -163,6 +190,15 @@ i.icon-plus {
 }
 
 .list-block {
+	&.list-block-ipad {
+		.item-inner {
+			padding-top: 34px;
+			padding-bottom: 33px;
+		}
+		.item-title {
+			font-size: 25px;
+		}	
+	}
 	.item-inner {
 		padding-top: 25px;
 		padding-bottom: 24px;
@@ -188,8 +224,21 @@ i.icon-plus {
 		margin: 0 5px;
 	}
 
+	&.no-border {
+		border: none;
+		padding: 0;
+		padding-top: 3px;
+		vertical-align: top;
+		background: none;
+	}
+
 	&.active {
 		border-color: @electurefy-blue;
+		background-color: @gray;
+	}
+
+	&.danger {
+		border-color: @electurefy-red;
 		background-color: @gray;
 	}
 }
@@ -355,3 +404,62 @@ span.gray-text {
 	border-width: 1px;
 	border-color: @light-gray;
 }
+
+/* Panel from Bootstrap */
+
+.bootstrap-panel {
+
+	
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+	&.panel-default {
+		border-color: #ddd;
+		width: 70%;
+		margin: 0 auto;
+	}
+
+	.panel-heading {
+		padding: 20px 15px;
+		border-bottom: 1px solid transparent;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		color: #333;
+		background-color: #f5f5f5;
+		border-color: #ddd;
+
+		.panel-title {
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: 25px;
+			letter-spacing: 1px;
+			color: inherit;
+		}
+
+	}
+
+	.panel-body {
+
+		font-size: 22px;
+		letter-spacing: 1px;
+
+		.panel-body-row {
+			padding: 20px;
+			border-bottom: 1px solid #ddd;
+
+			.bolt-num-information {
+				display: inline-block;
+				width: 100px;
+				text-align: center;
+			}
+
+		}
+		
+	}
+
+}
+

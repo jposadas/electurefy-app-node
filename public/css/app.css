@@ -6,6 +6,21 @@
 .navbar a.link {
   color: #ffffff;
 }
+.navbar.navbar-ipad {
+  height: 90px;
+}
+.navbar.navbar-ipad .center {
+  font-size: 30px;
+}
+.navbar.navbar-ipad .left {
+  font-size: 25px;
+}
+.navbar.navbar-ipad .right {
+  font-size: 25px;
+}
+.page-content.page-content-ipad {
+  padding-top: 90px;
+}
 .no-margin-list {
   margin: 0px;
 }
@@ -116,15 +131,26 @@ i.icon-plus {
   margin-top: 0;
   margin-bottom: 30px;
   font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .class-time-label {
   margin-top: 30px;
   margin-bottom: 0;
-  font-size: 17px;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .class-time {
   margin-top: 0;
   font-size: 45px;
+}
+.list-block.list-block-ipad .item-inner {
+  padding-top: 34px;
+  padding-bottom: 33px;
+}
+.list-block.list-block-ipad .item-title {
+  font-size: 25px;
 }
 .list-block .item-inner {
   padding-top: 25px;
@@ -146,8 +172,19 @@ i.icon-plus {
   height: 20px;
   margin: 0 5px;
 }
+.response-icon.no-border {
+  border: none;
+  padding: 0;
+  padding-top: 3px;
+  vertical-align: top;
+  background: none;
+}
 .response-icon.active {
   border-color: #2b59a2;
+  background-color: #d1cccc;
+}
+.response-icon.danger {
+  border-color: #e13521;
   background-color: #d1cccc;
 }
 .week-number-box {
@@ -279,4 +316,47 @@ span.gray-text {
   border-style: solid;
   border-width: 1px;
   border-color: #b8b8b8;
+}
+/* Panel from Bootstrap */
+.bootstrap-panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.bootstrap-panel.panel-default {
+  border-color: #ddd;
+  width: 70%;
+  margin: 0 auto;
+}
+.bootstrap-panel .panel-heading {
+  padding: 20px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+.bootstrap-panel .panel-heading .panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 25px;
+  letter-spacing: 1px;
+  color: inherit;
+}
+.bootstrap-panel .panel-body {
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+.bootstrap-panel .panel-body .panel-body-row {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.bootstrap-panel .panel-body .panel-body-row .bolt-num-information {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
 }

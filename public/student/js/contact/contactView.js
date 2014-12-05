@@ -13,10 +13,16 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
 
         $('.response-icon-container .response-icon').click(function() {
         	$('.response-icon-container .response-icon').removeClass('active');
-        	$(this).addClass('active');
+            $('.response-icon-container .response-icon').removeClass('danger');
+        	
 
         	var responseType = $(this).data('type');
 
+            if (responseType === 'check') {
+                $(this).addClass('active');
+            } else if (responseType === 'x') {
+                $(this).addClass('danger');
+            }
 
         	/* Updating Response at Instructor screen*/
         	updateResponseForInstructor(responseType, previousAnsweredBolt, isBoltAnswered);
