@@ -280,3 +280,12 @@ span.gray-text {
   border-width: 1px;
   border-color: #b8b8b8;
 }
+.slider-slide {
+  background: #fff;
+}
+.slider-slide span {
+  text-align: center;
+  display: block;
+  margin: 20px;
+  font-size: 21px;
+}
