@@ -14,7 +14,7 @@ define(['app', 'hbs!js/list/contact-list-item'], function(app, viewTemplate) {
         /* Receiving Bolt Socket */
         socket.on('bolt sent', function(){
 	        app.f7.confirm('Your professor has sent you a new Bolt', 'electurefy', function() {
-	        // 	console.log(app);
+                // add Information about  the contact page rendering
 	        	app.mainView.loadPage('contact.html');
 	        });
       	});

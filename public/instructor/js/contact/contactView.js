@@ -30,6 +30,8 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
 
         var updateBoltInformation = function(currentBolt) {
 
+         //    console.log(currentBolt);
+         //    console.log(bolts);
         	// console.log(bolts[currentBolt - 1]);
 
         	$('#negative-bolts').text(bolts[currentBolt - 1].attributes.numNeg);
@@ -72,11 +74,13 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
                 socket.emit('bolt sent');
 
         		currentBoltLive = true;
-        		$('#end-bolt').show();
+                $('#send-bolt').parents('.row').hide();
+                $('#end-bolt').show();
+        		$('#end-bolt').parents('.row').show();
 
         		var newBolt = {
 	        		attributes: {
-	        			BoltNum: numBolts + 1,
+	        			BoltNum: bolts.length + 1,
 	        			lectureObjectId: "Lecture 17",
 	        			numNeg: 0,
 	        			numPos: 0,
@@ -96,8 +100,9 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
                 /* Receiving Bolt from socket */
                 socket.on('bolt responded', function(obj) {
 
+                    console.log('========================================');
                     console.log('bolt-responded');
-                    console.log(obj);
+                    console.log('alreadyAnswered: ' + obj.alreadyAnswered);
 
                     if (obj.alreadyAnswered) {
                         if (obj.previousAnsweredBolt === 'check') {
@@ -107,10 +112,12 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
                         }
                     }
 
+                    console.log(bolts[bolts.length - 1]);
+
                     if (obj.responseType === 'check') {
-                        bolts[currentBolt - 1].attributes.numPos++;
+                        bolts[bolts.length - 1].attributes.numPos++;
                     } else if (obj.responseType === 'x') {
-                        bolts[currentBolt - 1].attributes.numNeg++;
+                        bolts[bolts.length - 1].attributes.numNeg++;
                     }
                     updateBoltInformation(currentBolt);
                 });
@@ -122,14 +129,51 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         $('#end-bolt').click(function() {
 
             app.f7.confirm('Are you sure you want to end this lecture?', 'electurefy', function() {
-                //emit socketss
+
+
+                // socket.emit('bolt ended', bolts[bolts.length - 1]);
                 currentBoltLive = false;
-                $('#end-bolt').hide();
+                $('#send-bolt').parents('.row').show();
+                $('#end-bolt').parents('.row').hide();
+
+                var newBoltInfo = bolts[bolts.length - 1];
+                var responseType = (newBoltInfo.attributes.numPos >= newBoltInfo.attributes.numNeg) ? true : false;
+                saveResponsesToDatabase(responseType, newBoltInfo);
             });
         	
         });
 
     }
+
+    var saveResponsesToDatabase = function(responseType, newBoltInfo) {
+        // Create bolt element on Database
+        console.log(responseType);
+        console.log(newBoltInfo);
+
+        var Bolts = Parse.Object.extend('Bolts');
+        var newBolt = new Bolts();
+
+        newBolt.set('BoltNum', newBoltInfo.attributes.BoltNum);
+        newBolt.set('lectureObjectId', newBoltInfo.attributes.lectureObjectId);
+        newBolt.set('numNeg', newBoltInfo.attributes.numNeg);
+        newBolt.set('numPos', newBoltInfo.attributes.numPos);
+        newBolt.set('isResponsePositive', responseType);
+        newBolt.set('totalResponses', newBoltInfo.attributes.numPos + newBoltInfo.attributes.numNeg);
+        newBolt.set('timeOfBolt', newBoltInfo.attributes.timeOfBolt);
+        
+
+        newBolt.save(null, {
+            success: function(newBolt) {
+                console.log('New object created: ' + newBolt.id);
+                socket.emit('bolt ended', newBolt.id);
+                
+            }, 
+            error: function(newBolt, error) {
+                console.log('Error when trying to save new Bolt to database: ' + error);
+            }
+        })
+
+    };
 
     var setTimer = function(lectureStartTime) {
     	var diff = Math.abs(new Date() - lectureStartTime);
