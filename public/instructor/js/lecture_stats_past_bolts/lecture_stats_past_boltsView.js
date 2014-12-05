@@ -10,6 +10,10 @@ define(['hbs!js/lecture_stats_past_bolts/lecture_stats_past_bolts'], function(vi
         $('#top-lecture-num').text('Lecture ' + params.lectureNum);
         $('#total-responses').text(params.model.totalResponses + ' responses');
 
+        $('.home').click(function() {
+            console.log("clicked home");
+            location.reload();
+        });
     }
  
     return {

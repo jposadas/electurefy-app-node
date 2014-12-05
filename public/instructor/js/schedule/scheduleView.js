@@ -11,6 +11,11 @@ define(['hbs!js/schedule/schedule'], function(viewTemplate) {
             {}
             ));
         
+        $('.home').click(function() {
+            console.log("clicked home");
+            location.reload();
+        });
+
         $('.schedule-header').text(params.model.courseNumber);
         $('#lecture6').text(params.model.lectureDate6);
         

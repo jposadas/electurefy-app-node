@@ -10,6 +10,11 @@ define(['hbs!js/statistics/statistics'], function(viewTemplate) {
         	}
        	));
 
+        $('.home').click(function() {
+            console.log("clicked home");
+            location.reload();
+        });
+
         var currentLectureTime;
 
         $('.statistics-header').text("Previous Lecture Statistics");
