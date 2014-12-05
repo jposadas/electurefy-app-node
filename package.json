@@ -1,9 +1,16 @@
 {
-  "name": "socket-chat-example",
-  "version": "0.0.1",
-  "description": "my first socket.io app",
+  "name": "electurefyApp",
+  "version": "0.0.1-1",
+  "description": "Electurefy App",
   "dependencies": {
     "express": "4.10.2",
     "socket.io": "^1.2.0"
+  },
+  "subdomain": "electurefy",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
