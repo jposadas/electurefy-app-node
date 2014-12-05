@@ -25,12 +25,20 @@
           <h1 class="teaser-title">electurefy</h1>
           <p class="teaser-text text-uppercase">Making lecture a more effective learning tool for students and instructors.</p>
           <div class="inline-form">
-            <a href="/instructor" class="btn btn-primary btn-cta text-uppercase">instructor</a>
-            <a href="/student" class="btn btn-primary btn-cta text-uppercase">student</a>
+            <a href="#" id="instructor" class="btn btn-primary btn-cta text-uppercase">instructor</a>
+            <a href="#" id="student" class="btn btn-primary btn-cta text-uppercase">student</a>
           </div>
           
         </div>
       </div>
     </div>
+    <script>
+    	document.getElementById('instructor').addEventListener('click', function() {
+    		location.replace("/instructor");
+    	});
+    	document.getElementById('student').addEventListener('click', function() {
+    		location.replace("/student");
+    	});
+    </script>
   </body>
 </html>
