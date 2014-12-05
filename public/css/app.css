@@ -306,6 +306,11 @@ span.gray-text {
 .right-align {
   text-align: right;
 }
+.best-worst-lecture-div {
+  width: 69%;
+  display: inline-block;
+  margin-right: 16%;
+}
 .bolt-num-div {
   width: 50%;
   display: inline-block;
@@ -358,5 +363,10 @@ span.gray-text {
 .bootstrap-panel .panel-body .panel-body-row .bolt-num-information {
   display: inline-block;
   width: 100px;
+  text-align: center;
+}
+.lecture-graph {
+  width: 97%;
+  height: 100%;
   text-align: center;
 }

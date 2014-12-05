@@ -2,6 +2,11 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
     
     var $ = Framework7.$;
     var socket = io();
+
+    // Init slider and store its instance in mySlider variable
+  var mySlider = app.f7.slider('.slider-container', {
+    pagination:'.slider-pagination'
+  });
  
     function render(params) {
 
