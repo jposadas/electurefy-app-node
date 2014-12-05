@@ -1,0 +1,23 @@
+<div class="page-content lighter-gray-background">
+    <div class="container">
+        <div class="past_bolts-page">
+            <div id="top-lecture-num" class="left-align text-center padding-title padding-top-bottom white-background">Lecture 7</div> 
+            <div>
+            {{#each bolts}}
+                <div class="item-content">
+                    <div class="overall-stats-link bolt-num-box medium-font-size padding-top-bottom">
+                        <div class="bolt-num-div ">BOLT {{attributes.BoltNum}}</div>
+                        <span class="gray-text">sent at {{attributes.timeOfBolt}}</span>
+                    </div>
+                    <div id="" class="medium-font-size white-background no-left-padding padding-title padding-top-bottom no-left-padding text-center">
+                        <span class=""></span>
+                        {{attributes.numPos}} <img class="padding-right small active" src="/glyphicons/check.png"/>
+                         {{attributes.numNeg}} <img class=" small" src="/glyphicons/x.png"/>
+                        <div>{{attributes.totalResponses}} responses</div>
+                    </div>                
+                </div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+</div> 
