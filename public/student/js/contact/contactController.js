@@ -6,13 +6,23 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
     console.log(app);
  
     function init(query) {
-        queryParse('CS 147');
+        queryParse(query.courseNumber);
     }
 
     function queryParse(courseNumber) {
         var query = new Parse.Query("Bolts");
         query.descending("BoltNum").find().then(function(bolts) {
-            ContactView.render({ model: bolts, courseNumber: courseNumber });
+            console.log("before: ");
+
+            console.log(bolts);
+            var showCurrent = true;
+
+            if(courseNumber == "CS 247") {
+                bolts = bolts.slice(bolts.length - 3,bolts.length);
+                showCurrent = false;
+            }
+            console.log(bolts);
+            ContactView.render({ model: bolts, showCurrent: showCurrent, courseNumber: courseNumber });
         });
     }
  

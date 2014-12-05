@@ -5,7 +5,7 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
     function render(params) {
 
     	var boltTime = params.model
-        $('.contact-page .bolt-list ul').html(viewTemplate({ bolts: params.model }));
+        $('.contact-page .bolt-list ul').html(viewTemplate({ bolts: params.model, showCurrent: params.showCurrent }));
         $('.contacts-header').text(params.courseNumber + ' Bolts');
 
         var isBoltAnswered = false;

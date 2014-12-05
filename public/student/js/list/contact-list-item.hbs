@@ -1,7 +1,15 @@
 {{#.}}
 	<a href="contact.html?courseNumber={{attributes.courseNumber}}" class="item-link item-content">
 		<div class="item-inner">
-			<div class="item-title text-center">{{attributes.courseNumber}}</div>
+			<div class="item-title text-center">{{attributes.courseNumber}}
+				{{#if attributes.isLive}}
+					<div class="live-label">
+						<div class="circle-student"></div>
+						LIVE
+					</div>
+			{{/if}}
+			</div>
+			
 		</div>
 	</a>
 {{/.}}

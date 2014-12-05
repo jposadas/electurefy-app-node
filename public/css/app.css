@@ -412,6 +412,18 @@ span.gray-text {
   top: 0;
   color: #2b59a2;
 }
+.circle-student {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50px;
+  font-size: 20px;
+  line-height: 100px;
+  background: #2b59a2;
+  text-align: center;
+  margin-right: 3px;
+  margin-left: 11px;
+}
 .circle {
   display: inline-block;
   width: 20px;
