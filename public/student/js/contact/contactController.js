@@ -6,7 +6,7 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
     console.log(app);
  
     function init(query) {
-        queryParse(query.courseNumber);
+        queryParse('CS 147');
     }
 
     function queryParse(courseNumber) {
@@ -18,5 +18,5 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
  
     return {
         init: init
-    };
+    }
 });

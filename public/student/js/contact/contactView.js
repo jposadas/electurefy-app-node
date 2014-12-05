@@ -1,4 +1,4 @@
-define(['hbs!js/contact/contact'], function(viewTemplate) {
+define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
     var $ = Framework7.$;
     var socket = io();
 
@@ -24,10 +24,52 @@ define(['hbs!js/contact/contact'], function(viewTemplate) {
         	isBoltAnswered = true;
 
         });
+
+        socket.on('bolt ended', function() {
+            app.router.load('contact');
+            // console.log('bolt ended');
+            // var responseType = $('.response-icon-container .response-icon.active').data('type');
+            // if (responseType === 'x') {
+            //     responseType = false;
+            // } else if (responseType === 'check') {
+            //     responseType = true;
+            // }
+            // saveResponsesToDatabase(responseType, newBolt);
+        });
  
     }
 
-    function updateResponseForInstructor(responseType, previousAnsweredBolt, isBoltAnswered) {
+    function saveResponsesToDatabase(responseType, newBoltInfo) {
+        // Create bolt element on Database
+        console.log(responseType);
+        console.log(newBoltInfo);
+
+        var Bolts = Parse.Object.extend('Bolts');
+        var newBolt = new Bolts();
+
+        newBolt.set('BoltNum', newBoltInfo.attributes.BoltNum);
+        newBolt.set('lectureObjectId', newBoltInfo.attributes.lectureObjectId);
+        newBolt.set('numNeg', newBoltInfo.attributes.numNeg);
+        newBolt.set('numPos', newBoltInfo.attributes.numPos);
+        newBolt.set('isResponsePositive', responseType);
+        newBolt.set('totalResponses', newBoltInfo.attributes.numPos + newBoltInfo.attributes.numNeg);
+        newBolt.set('timeOfBolt', newBoltInfo.attributes.timeOfBolt);
+        
+
+        newBolt.save(null, {
+            success: function(newBolt) {
+                console.log('New object created: ' + newBolt.id);
+                app.router.load('contact');
+                
+            }, 
+            error: function(newBolt, error) {
+                console.log('Error when trying to save new Bolt to database: ' + error);
+            }
+        })
+
+    }
+
+    var updateResponseForInstructor = function (responseType, previousAnsweredBolt, isBoltAnswered) {
     	// Update on Database too!!!
     	socket.emit('bolt response', { 
     		responseType : responseType, 
