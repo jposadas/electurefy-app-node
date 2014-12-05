@@ -114,7 +114,10 @@ i.icon-plus {
 }
 .class-title {
   margin-bottom: 0;
-  font-size: 40px;
+  font-size: 45px;
+  text-transform: uppercase;
+  color: black;
+  letter-spacing: 2px;
 }
 #class-schedule-title {
   margin-bottom: 15px;
