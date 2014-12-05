@@ -4,41 +4,36 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
     var contact = null;
  
     function init(query){
-        if (query && query.id) {
 
-            var query = new Parse.Query("Lectures");
-            query.equalTo("objectId", "8H6DxULgQz");
-            query.find().then(function(currentLecture) {
-                
-                var lectureNumber = currentLecture[0].attributes.LectureNum;
-                var lectureDayOfWeek = currentLecture[0].attributes.DayOfWeek;
-                var lectureDateMonth = currentLecture[0].attributes.Date.getMonth() + 1;
-                var lectureDateDay = currentLecture[0].attributes.Date.getDate();
+        console.log('============== BACK IN CONTROLLER =================');
 
-                var lectureStartTime = currentLecture[0].attributes.startLecture;
+        var query = new Parse.Query("Lectures");
+        query.equalTo("objectId", "8H6DxULgQz");
+        query.find().then(function(currentLecture) {
+            
+            var lectureNumber = currentLecture[0].attributes.LectureNum;
+            var lectureDayOfWeek = currentLecture[0].attributes.DayOfWeek;
+            var lectureDateMonth = currentLecture[0].attributes.Date.getMonth() + 1;
+            var lectureDateDay = currentLecture[0].attributes.Date.getDate();
 
-                var boltsQuery = new Parse.Query("Bolts");
-                boltsQuery.find().then(function(bolts) {
+            var lectureStartTime = currentLecture[0].attributes.startLecture;
 
-                    boltsQuery.descending('BoltNum').find().then(function(descendingBolts) {
+            var boltsQuery = new Parse.Query("Bolts");
+            boltsQuery.find().then(function(bolts) {
 
-                        ContactView.render({ model:
-                            { lectureNumber: lectureNumber,
-                                lectureDate: lectureDayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay,
-                                lectureStartTime: lectureStartTime,
-                                lectureBolts: bolts,
-                                descendingBolts: descendingBolts
-                            } 
-                        }); 
+                boltsQuery.descending('BoltNum').find().then(function(descendingBolts) {
 
-                    });
-
+                    ContactView.render({ model:
+                        { lectureNumber: lectureNumber,
+                            lectureDate: lectureDayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay,
+                            lectureStartTime: lectureStartTime,
+                            lectureBolts: bolts,
+                            descendingBolts: descendingBolts
+                        } 
+                    }); 
                 });
-
-                
-            });
-        
-        }
+            });    
+        });
     }
  
     return {

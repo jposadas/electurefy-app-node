@@ -12,7 +12,7 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
 
         var mostRecentBolt = params.model.lectureBolts[params.model.lectureBolts.length - 1];
         console.log(mostRecentBolt);
-        mostRecentBolt.attributes.totalResponses = mostRecentBolt.attributes.numPos + mostRecentBolt.attributes.numNeg;
+        // mostRecentBolt.attributes.totalResponses = mostRecentBolt.attributes.numPos + mostRecentBolt.attributes.numNeg;
 
 
         $('.contact-page').html( viewTemplate( 
@@ -84,7 +84,7 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         	if (!currentBoltLive) {
 
                 /* Changing Panel Information */
-                $('.panel-title').text('BOLT IN PROGRESS');
+                $('.page-content .panel-title').text('BOLT IN PROGRESS');
 
                 /* Emiting socket */
                 socket.emit('bolt sent');
@@ -100,7 +100,6 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
 	        			lectureObjectId: "Lecture 17",
 	        			numNeg: 0,
 	        			numPos: 0,
-	        			totalResponses: 0,
 	        			timeOfBolt: currentLectureTime
 	        		}
 	        	}
@@ -151,7 +150,7 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
                 currentBoltLive = false;
                 $('#send-bolt').parents('.row').show();
                 $('#end-bolt').parents('.row').hide();
-                $('.panel-title').text('MOST RECENT BOLT');
+                $('.page-content .panel-title').text('MOST RECENT BOLT');
 
                 var newBoltInfo = bolts[bolts.length - 1];
                 var responseType = (newBoltInfo.attributes.numPos >= newBoltInfo.attributes.numNeg) ? true : false;
@@ -175,14 +174,16 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         newBolt.set('numNeg', newBoltInfo.attributes.numNeg);
         newBolt.set('numPos', newBoltInfo.attributes.numPos);
         newBolt.set('isResponsePositive', responseType);
-        newBolt.set('totalResponses', newBoltInfo.attributes.numPos + newBoltInfo.attributes.numNeg);
+        newBolt.set('totalResponsesLabel', $('#totalBolts').text());
         newBolt.set('timeOfBolt', newBoltInfo.attributes.timeOfBolt);
         
 
         newBolt.save(null, {
             success: function(newBolt) {
+                // bolts.unshift(newBolt);
                 console.log('New object created: ' + newBolt.id);
                 socket.emit('bolt ended', newBolt.id);
+                app.router.load('contact');
                 
             }, 
             error: function(newBolt, error) {
