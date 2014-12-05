@@ -1,14 +1,49 @@
+<div class="panel-overlay"></div>
+<!-- Right Panel with Cover effect -->
+<div class="panel panel-right panel-cover">
+    <div class="side-bar-padding">
+        {{#each pastBolts}}
+            <div class="bootstrap-panel panel-sidebar">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">BOLT {{attributes.BoltNum}}</h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="panel-body-row">
+                        <div class="bolt-num-information">
+                            <span>{{attributes.NumPositive}}</span>
+                            <img class="response-icon small no-border sidebar" src="/glyphicons/check.png">
+                        </div>
+                        <div class="bolt-num-information">
+                            <span>{{attributes.NumNegative}}</span>
+                            <img class="response-icon small no-border sidebar" src="/glyphicons/x.png">
+                        </div>
+                    </div>
+                    <div class="panel-body-row">
+                        <span>{{attributes.totalResponses}} RESPONSES</span>
+                    </div>
+                    <div class="panel-body-row">
+                        SENT AT <span>{{attributes.timeOfBolt}}</span>
+                    </div>
+                  </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+
 <div class="page-content page-content-ipad white-background">
     <div class="container">
         <div class="lecture-stats-page text-black">
 
-            <div id="lectureNumTitle" class="row padding-title">Lecture NUM here</div>
-            <div id="lectureDescriptionTitle" class="row lecture-description padding-title">Lecture description</div>
-            <div id="lectureDateTitle" class="row padding-title">DATE HERE</div>
+            <div id="lectureNumTitle" class="row padding-title"></div>
+            <div id="lectureDescriptionTitle" class="row lecture-description padding-title"></div>
+            <div id="lectureDateTitle" class="row padding-title"></div>
             
             <div class="row white-background padding-link overall-stats-link">
                 <img class="lecture-graph">
             </div>
+
+            <p><a href="#" data-panel="right" class="open-panel">Open Right Panel</a></p>
 
         </div>
     </div>
