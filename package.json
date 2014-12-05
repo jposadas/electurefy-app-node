@@ -1,6 +1,6 @@
 {
   "name": "electurefyApp",
-  "version": "0.0.1-2",
+  "version": "0.0.1-3",
   "description": "Electurefy App",
   "dependencies": {
     "express": "4.10.2",
