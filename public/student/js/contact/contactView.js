@@ -8,6 +8,11 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         $('.contact-page .bolt-list ul').html(viewTemplate({ bolts: params.model, showCurrent: params.showCurrent }));
         $('.contacts-header').text(params.courseNumber + ' Bolts');
 
+        $('.home').click(function() {
+            console.log("clicked home");
+            location.reload();
+        });
+
         var isBoltAnswered = false;
         var previousAnsweredBolt;
 
