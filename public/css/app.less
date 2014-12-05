@@ -230,6 +230,11 @@ i.icon-plus {
 		padding-top: 3px;
 		vertical-align: top;
 		background: none;
+
+		&.sidebar {
+			padding-top: 1px;
+		}
+
 	}
 
 	&.active {
@@ -422,6 +427,32 @@ span.gray-text {
 	border-radius: 8px;
 	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
 	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	text-align: center;
+
+	&.panel-sidebar {
+		width: 90%;
+		margin: 12px auto;
+		border-color: #ccc;
+
+		.panel-heading {
+			padding: 10px 15px;
+
+			.panel-title {
+				font-size: 20px;
+			}
+
+		}
+
+		.panel-body {
+			font-size: 16px;
+			color: #333;
+			.panel-body-row {
+				padding: 10px;
+
+			}
+		}
+
+	}
 
 	&.panel-default {
 		border-color: #ddd;
@@ -473,4 +504,8 @@ span.gray-text {
 	width: 97%;
 	height: 100%;
 	text-align: center;
+}
+
+.side-bar-padding {
+	padding-top: 90px;
 }

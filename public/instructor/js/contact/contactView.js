@@ -19,7 +19,8 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         	{ lectureNumber: params.model.lectureNumber,
         	  lectureDate: params.model.lectureDate,
         	  lectureTime: params.model.lectureTime,
-              mostRecentBolt: mostRecentBolt 
+              mostRecentBolt: mostRecentBolt,
+              descendingBolts: params.model.descendingBolts
         	}
        	));
 

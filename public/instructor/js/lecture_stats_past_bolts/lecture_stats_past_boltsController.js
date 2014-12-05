@@ -10,7 +10,7 @@ define(["app","js/lecture_stats_past_bolts/lecture_stats_past_boltsView"], funct
     function queryParse(lectureNum) {
       var query = new Parse.Query("PreviousLectures");
       query.equalTo('LectureNum', parseInt(lectureNum));
-      query.find({
+      query.descending('BoltNum').find({
         success: function(bolts) {
           console.log('success');
           Lecture_stats_past_boltsView.render({ model: bolts, lectureNum: lectureNum });

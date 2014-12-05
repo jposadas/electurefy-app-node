@@ -20,13 +20,18 @@ define(["app","js/contact/contactView"], function(app, ContactView) {
                 var boltsQuery = new Parse.Query("Bolts");
                 boltsQuery.find().then(function(bolts) {
 
-                    ContactView.render({ model:
-                    { lectureNumber: lectureNumber,
-                        lectureDate: lectureDayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay,
-                        lectureStartTime: lectureStartTime,
-                        lectureBolts: bolts
-                    } 
-                });
+                    boltsQuery.descending('BoltNum').find().then(function(descendingBolts) {
+
+                        ContactView.render({ model:
+                            { lectureNumber: lectureNumber,
+                                lectureDate: lectureDayOfWeek + ' ' + lectureDateMonth + '/' + lectureDateDay,
+                                lectureStartTime: lectureStartTime,
+                                lectureBolts: bolts,
+                                descendingBolts: descendingBolts
+                            } 
+                        }); 
+
+                    });
 
                 });
 

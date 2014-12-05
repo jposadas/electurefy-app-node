@@ -179,6 +179,9 @@ i.icon-plus {
   vertical-align: top;
   background: none;
 }
+.response-icon.no-border.sidebar {
+  padding-top: 1px;
+}
 .response-icon.active {
   border-color: #2b59a2;
   background-color: #d1cccc;
@@ -330,6 +333,25 @@ span.gray-text {
   border-radius: 8px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+.bootstrap-panel.panel-sidebar {
+  width: 90%;
+  margin: 12px auto;
+  border-color: #ccc;
+}
+.bootstrap-panel.panel-sidebar .panel-heading {
+  padding: 10px 15px;
+}
+.bootstrap-panel.panel-sidebar .panel-heading .panel-title {
+  font-size: 20px;
+}
+.bootstrap-panel.panel-sidebar .panel-body {
+  font-size: 16px;
+  color: #333;
+}
+.bootstrap-panel.panel-sidebar .panel-body .panel-body-row {
+  padding: 10px;
 }
 .bootstrap-panel.panel-default {
   border-color: #ddd;
@@ -369,4 +391,7 @@ span.gray-text {
   width: 97%;
   height: 100%;
   text-align: center;
+}
+.side-bar-padding {
+  padding-top: 90px;
 }

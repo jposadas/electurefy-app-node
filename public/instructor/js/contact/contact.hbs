@@ -1,3 +1,35 @@
+<div class="panel-overlay"></div>
+<!-- Right Panel with Cover effect -->
+<div class="panel panel-right panel-cover">
+    <div class="side-bar-padding">
+        {{#each descendingBolts}}
+            <div class="bootstrap-panel panel-sidebar">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">BOLT {{attributes.BoltNum}}</h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="panel-body-row">
+                        <div class="bolt-num-information">
+                            <span id="numPos">{{attributes.numPos}}</span>
+                            <img class="response-icon small no-border sidebar" src="/glyphicons/check.png">
+                        </div>
+                        <div class="bolt-num-information">
+                            <span id="numNeg">{{attributes.numNeg}}</span>
+                            <img class="response-icon small no-border sidebar" src="/glyphicons/x.png">
+                        </div>
+                    </div>
+                    <div class="panel-body-row">
+                        <span id="totalBolts">{{attributes.totalResponses}}</span>
+                    </div>
+                    <div class="panel-body-row">
+                        SENT AT <span id="timeOfBolt">{{attributes.timeOfBolt}}</span>
+                    </div>
+                  </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
 <div class="page-content page-content-ipad gray-background">
     <div class="container text-center">
         <div class="content-block">
@@ -99,6 +131,7 @@
                     <a href="#" id="end-bolt" class="button button-big button-danger bolt-action-button">END BOLT</a>
                 </div>
             </div>
+            <p><a href="#" data-panel="right" class="open-panel">Open Right Panel</a></p>
         </div>
     </div>
 
