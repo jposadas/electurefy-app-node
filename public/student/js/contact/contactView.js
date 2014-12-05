@@ -16,6 +16,11 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         var isBoltAnswered = false;
         var previousAnsweredBolt;
 
+        console.log(params);
+        if (params.showResponseSection) {
+            $('.respond-bolt-section').show();
+        }
+
         $('.response-icon-container .response-icon').click(function() {
         	$('.response-icon-container .response-icon').removeClass('active');
             $('.response-icon-container .response-icon').removeClass('danger');
@@ -37,7 +42,8 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         });
 
         socket.on('bolt ended', function() {
-            app.router.load('contact');
+            $('.respond-bolt-section').hide();
+            app.router.load('contact', {courseNumber: 'CS 147', showResponseSection: 'false'});
             // console.log('bolt ended');
             // var responseType = $('.response-icon-container .response-icon.active').data('type');
             // if (responseType === 'x') {
@@ -70,7 +76,7 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         newBolt.save(null, {
             success: function(newBolt) {
                 console.log('New object created: ' + newBolt.id);
-                app.router.load('contact');
+                app.router.load('contact', {courseNumber: 'CS 147'});
                 
             }, 
             error: function(newBolt, error) {
