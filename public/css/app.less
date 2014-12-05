@@ -5,6 +5,7 @@
 @bright-blue: #3141FD;
 @dark-gray: #686868;
 @lighter-gray: #c5c5c5;
+@lighest-gray: #f6f6f6;
 
 @electurefy-blue: #2B59A2;
 @electurefy-red: #E13521;
@@ -152,6 +153,14 @@ i.icon-plus {
 	font-weight: bold;
 }
 
+.bold {
+	font-weight: bold;
+}
+
+.no-decoration {
+	text-decoration: none;
+}
+
 .class-title {
 	margin-bottom: 0;
 	font-size: 40px;
@@ -227,7 +236,7 @@ i.icon-plus {
 	&.no-border {
 		border: none;
 		padding: 0;
-		padding-top: 3px;
+		padding-top: 6px;
 		vertical-align: top;
 		background: none;
 	}
@@ -273,7 +282,7 @@ i.icon-plus {
 }
 
 .padding-link {
-	padding: 20px 5%;
+	padding: 20px 20px 3% 5%;
 }
 
 .no-left-padding {
@@ -311,7 +320,8 @@ i.icon-plus {
 	line-height: 70px;
 	font-size: 30px;
 	margin-bottom: 10px;
-	width: 80%
+	width: 80%;
+	background: @electurefy-blue;
 }
 
 .text-black {
@@ -353,7 +363,6 @@ i.icon-plus {
 .smaller-size-icons {
 	width: 25px;
 	height: 25px;
-	padding: 5px;
 	margin: 0px 10px;
 }
 
@@ -473,4 +482,27 @@ span.gray-text {
 	width: 97%;
 	height: 100%;
 	text-align: center;
+}
+
+.lightest-grey-background {
+	background-color: @lighest-gray;
+}
+
+.live-label {
+	position: absolute;
+	left: 63%;
+	top: 0;
+	color:@electurefy-blue;
+}
+
+.circle{
+	display:inline-block;
+	width:20px;
+	height:20px;
+	border-radius:50px;
+	font-size:20px;
+	line-height:100px;
+	background:@electurefy-blue;
+	text-align:center;
+	margin-right: 3px;
 }
