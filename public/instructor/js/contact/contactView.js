@@ -14,6 +14,10 @@ define(['app', 'hbs!js/contact/contact'], function(app, viewTemplate) {
         console.log(mostRecentBolt);
         // mostRecentBolt.attributes.totalResponses = mostRecentBolt.attributes.numPos + mostRecentBolt.attributes.numNeg;
 
+        $('.home').click(function() {
+            console.log("clicked home");
+            location.reload();
+        });
 
         $('.contact-page').html( viewTemplate( 
         	{ lectureNumber: params.model.lectureNumber,

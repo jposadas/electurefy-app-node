@@ -6,9 +6,10 @@ define(['hbs!js/past_bolts/past_bolts'], function(viewTemplate) {
         $('.past_bolts-page').html( viewTemplate( { bolts: params.model }));
         $('.past_bolts-header').text('CS 147 Past Bolts');
 
-
-        // $('.past_bolts-header').text("CS 147 Past Bolts");
-
+        $('.home').click(function() {
+            console.log("clicked home");
+            location.reload();
+        });
     }
  
     return {
